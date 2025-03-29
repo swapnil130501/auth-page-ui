@@ -1,10 +1,8 @@
-import { SignupCard } from "../components/SignupCard";
-
-export const Auth = () => {
+export const Auth = ({ children }) => {
     return (
-        <div className="h-[100vh] flex items-center justify-center bg-[#5c3B58]">
+        <div className="h-[100vh] flex items-center justify-center bg-slack">
             <div className="md:h-auto md:w-[420px]">
-                <SignupCard />
+                {children}
             </div>
         </div>
     );
