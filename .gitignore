@@ -1,0 +1,29 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Build files
+dist/
+out/
+.vite/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite cache
+.vite/
+.cache/
+
+# Editor & OS-specific files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Tailwind CSS and PostCSS cache
+.postcss-cache/
+.tailwind-cache/
