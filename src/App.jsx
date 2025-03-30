@@ -5,6 +5,7 @@ import { SigninCard } from "./components/SigninCard";
 import { SignupCard } from "./components/SignupCard";
 import { NotFound } from './pages/NotFound';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from './components/ui/toaster'
 
 function App() {
     const queryClient = new QueryClient();
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/auth/signin" element={<Auth><SigninCard /></Auth>} />
                     <Route path="/*" element={<NotFound/>} />
                 </Routes>
+                <Toaster />
             </>
         </QueryClientProvider>
     )

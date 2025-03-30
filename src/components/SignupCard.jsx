@@ -68,7 +68,7 @@ export const SignupCard = () => {
                 {error && (
                     <div className="bg-destructive/15 p-4 flex items-center gap-x-2 mb-6 text-sm text-destructive">
                         <TriangleAlert className="size-5" />
-                        <p>{validationError.message}</p>
+                        <p>{error.message}</p>
                     </div>
                 )}
 
