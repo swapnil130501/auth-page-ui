@@ -6,6 +6,7 @@ import { Separator } from "../components/ui/separator";
 import { useNavigate } from "react-router-dom";
 import { useSignup } from "../hooks/apis/auth/useSignup";
 import { LucideLoader2, TriangleAlert } from "lucide-react";
+import { FaCheck } from "react-icons/fa";
 
 export const SignupCard = () => {
     const navigate = useNavigate();
@@ -73,7 +74,8 @@ export const SignupCard = () => {
                 )}
 
                 {isSuccess && (
-                    <div className="bg-primary/15 p-3 rounded-md flex items-center text-sm text-primary mb-5">
+                    <div className="bg-primary/15 p-3 rounded-md flex items-center text-sm text-primary mb-5 gap-x-2">
+                        <FaCheck className="size-5" />
                         <p>Successfully signed up, redirecting to login page</p>
                         <LucideLoader2 className="animate-spin ml-2"/>
                     </div>
