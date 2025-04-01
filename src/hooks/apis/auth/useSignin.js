@@ -7,12 +7,16 @@ export const useSignin = () => {
 
     const { isPending, isSuccess, error, mutateAsync: signinMutation } = useMutation({
         mutationFn: signinRequest,
-        onSuccess: (data) => {
-            console.log("Successfuly signed in", data);
+        onSuccess: (response) => {
+            console.log("Successfuly signed in", response);
+
+            localStorage.setItem('token', response.data);
+            console.log(response.data);
+
             toast({
                 title: 'Successfuly signed in',
                 message: 'You will be redirected to the home page in a few seconds',
-                type: 'sucess'
+                type: 'success'
             })
         },
         onError: (error) => {
