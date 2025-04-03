@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { signinRequest } from "../../../apis/auth";
 import { useToast } from '../../../hooks/use-toast';
 import { useAuth } from "../../useAuth";
+import { jwtDecode } from "jwt-decode";
 
 export const useSignin = () => {
     const { toast } = useToast();
@@ -11,14 +12,20 @@ export const useSignin = () => {
         mutationFn: signinRequest,
         onSuccess: (response) => {
             console.log("Successfuly signed in", response);
+        
+            const { accessToken, refreshToken } = response.data;
+            console.log(accessToken)
+            localStorage.setItem('access_token', accessToken);
 
-            localStorage.setItem('token', response.data);
+            const decodedToken = jwtDecode(accessToken);
+            const expirationTime = decodedToken.exp * 1000;
+
+            localStorage.setItem("token_expiry", expirationTime);
+
             setAuth({
-                token: response.data,
+                token: accessToken,
                 isLoading: false
             })
-            
-            console.log(response.data);
 
             toast({
                 title: 'Successfuly signed in',

@@ -27,3 +27,20 @@ export const signinRequest = async ({ email, password }) => {
         throw error.response.data;
     }
 }
+
+export const refreshAccessToken = async () => {
+    try {
+        const response = await axiosConfig.get("/refresh-token", {
+            withCredentials: true
+        });
+
+        const { accessToken } = response.data;
+        console.log(accessToken)
+        localStorage.setItem('access_token', accessToken);
+
+        return accessToken;
+    } catch (error) {
+        console.error("Failed to refresh token", error);
+        return null;
+    }
+}
