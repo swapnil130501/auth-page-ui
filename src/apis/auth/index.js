@@ -34,7 +34,7 @@ export const refreshAccessToken = async () => {
             withCredentials: true
         });
 
-        const { accessToken } = response.data;
+        const accessToken = response.data?.data?.accessToken;
         console.log(accessToken)
         localStorage.setItem('access_token', accessToken);
 

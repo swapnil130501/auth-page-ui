@@ -9,10 +9,10 @@ export const AuthContextProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if(token) {
+        const accessToken = localStorage.getItem('access_token');
+        if(accessToken) {
             setAuth({
-                token,
+                token: accessToken,
                 isLoading: false
             });
         }

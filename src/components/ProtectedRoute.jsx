@@ -31,6 +31,7 @@ export const PortectedRoute = ({ children }) => {
 
         else {
             setIsChecking(false);
+            setAuth({ token: token, isLoading: false });
         }
     }
 

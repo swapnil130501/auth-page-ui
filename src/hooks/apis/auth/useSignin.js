@@ -13,7 +13,7 @@ export const useSignin = () => {
         onSuccess: (response) => {
             console.log("Successfuly signed in", response);
         
-            const { accessToken, refreshToken } = response.data;
+            const { accessToken } = response.data;
             console.log(accessToken)
             localStorage.setItem('access_token', accessToken);
 
